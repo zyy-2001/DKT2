@@ -1,0 +1,6 @@
+PyYAML == 6.0
+tqdm == 4.62.3
+pandas==1.4.2
+accelerate==0.6.2
+yacs==0.1.8
+iopath==0.1.9

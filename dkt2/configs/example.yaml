@@ -1,0 +1,222 @@
+dataset_path: "./dataset"
+
+checkpoint_dir: .ckpts
+seed: 12405
+trans: False
+len: 1
+mask_future: False
+pred_last: False
+mask_response: False
+seq_len: -1
+joint: False
+
+mamba4kt_config:
+  embedding_size: 64
+  num_blocks: 5
+  num_attn_heads: 8
+  d_state: 32
+  d_conv: 4
+  expand: 2
+  dropout: 0.05
+
+bkt_config:
+  slip_logit: 0.1
+  guess_logit: 0.3
+  train_p: 0.1
+  learn_p: 0.5
+
+
+dkt_plus_config:
+  lambda_r: 0.01
+  lambda_w1: 0.003
+  lambda_w2: 3.0
+  embedding_size: 64
+  dropout: 0.1
+
+dkt_forget_config:
+  embedding_size: 64
+  dropout: 0.1
+
+dkt2_config:
+  factor: 1.3
+  num_blocks: 1
+  num_heads: 2
+  slstm_at: [0]
+  conv1d_kernel_size: 4
+  qkv_proj_blocksize: 4
+  embedding_size: 64
+  dropout: 0.1
+
+dimkt_config:
+  embedding_size: 64
+  dropout: 0.1
+  batch_size: 512
+  difficult_levels: 100 # fixed
+
+atdkt_config:
+  embedding_size: 64
+  dropout: 0.1
+  num_layers: 1
+  num_attn_heads: 8
+  l1: 0.5
+  l2: 0.5
+  l3: 0.5
+  start: 50
+
+dtransformer_config:
+  embedding_size: 64
+  d_ff: 1024
+  num_attn_heads: 8
+  n_know: 16
+  num_blocks: 2
+  dropout: 0.05
+  lambda_cl: 0.1 
+  proj: False
+  hard_neg: False
+  window: 1
+  shortcut: False
+  separate_qr: False
+
+
+mikt_config:
+  state_d: 64
+  embedding_size: 64
+  dropout: 0.05
+
+gkt_config:
+  hidden_dim: 4
+  embedding_size: 64
+  graph_type: "transition"  # or "dense"
+  dropout: 0.05
+
+sparsekt_config:
+  embedding_size: 64
+  num_blocks: 2
+  kq_same: True
+  num_attn_heads: 8
+  final_fc_dim: 512
+  final_fc_dim2: 512
+  d_ff: 1024
+  dropout: 0.05
+  separate_qr: False
+  emb_type: "qid_sparseattn"
+  sparse_ratio: 0.8
+  k_index: 5
+
+
+folibikt_config:
+  embedding_size: 64
+  num_blocks: 2
+  kq_same: True
+  emb_type: "qid_alibi"
+  num_attn_heads: 8
+  final_fc_dim: 512
+  d_ff: 1024
+  l2: 1e-5
+  dropout: 0.05
+  separate_qr: False
+  num_buckets: 16
+  max_distance: 50
+
+saint_config:
+  embedding_size: 64
+  num_attn_heads: 8
+  dropout: 0.05
+  num_blocks: 4
+
+atkt_config:
+  skill_dim: 64
+  answer_dim: 64
+  hidden_dim: 64
+  attention_dim: 256
+  epsilon: 10
+  beta: 0.2
+  dropout: 0.05
+
+akt_config:
+  embedding_size: 64
+  num_blocks: 2
+  kq_same: True
+  num_attn_heads: 8
+  final_fc_dim: 512
+  d_ff: 1024
+  l2: 1e-5
+  dropout: 0.05
+  separate_qr: False
+
+simplekt_config:
+  embedding_size: 64
+  num_blocks: 2
+  kq_same: True
+  num_attn_heads: 8
+  final_fc_dim: 512
+  final_fc_dim2: 256
+  d_ff: 1024
+  l2: 1e-5
+  dropout: 0.05
+  separate_qr: False
+
+
+skvmn_config:
+  dim_s: 64
+  size_m: 64
+  dropout: 0.05
+
+deep_irt_config:
+  dim_s: 64
+  size_m: 64
+  dropout: 0.05
+
+dkvmn_config:
+  dim_s: 64
+  size_m: 64
+  dropout: 0.05
+
+sakt_config:
+  embedding_size: 64
+  num_blocks: 1
+  num_attn_heads: 8
+  dropout: 0.05
+  
+cl4kt_config:
+  hidden_size: 64
+  num_blocks: 2
+  num_attn_heads: 8
+  kq_same: True
+  final_fc_dim: 512
+  d_ff: 1024
+  l2: 0.0
+  dropout: 0.2
+  reg_cl: 0.1
+  mask_prob: 0.2
+  crop_prob: 0.3
+  permute_prob: 0.3
+  replace_prob: 0.3
+  negative_prob: 1.0
+  temp: 0.05
+  hard_negative_weight: 1.0
+
+dkt_config:
+  embedding_size: 64
+  dropout: 0.1
+  
+train_config:
+  wl: 0.0
+  log_wandb_fold: True
+  sequence_option: "recent" # early or recent
+  seq_len: 200
+  batch_size: 512
+  eval_batch_size: 512
+  num_epochs: 300
+  print_epochs: 1
+  max_grad_norm: 2.0
+  learning_rate: 0.001
+  optimizer: adam
+  
+  loss: BCE
+
+  ## Model Save
+  save_model: False
+  save_epochs: 1
+  save_model_name: "tmp"
+  log_path: "logs"
