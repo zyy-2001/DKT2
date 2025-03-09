@@ -22,6 +22,7 @@ from models.dkvmn import DKVMN
 from models.simplekt import simpleKT
 from models.akt import AKT
 from models.dtransformer import DTransformer
+from models.stablekt import stableKT
 from models.atkt import ATKT
 from models.folibikt import folibiKT
 from models.skvmn import SKVMN
@@ -228,6 +229,11 @@ def main(config):
             if data_name in ["statics", "assistments15"]:
                 num_questions = 0
             model = DTransformer(mask_response, pred_last, mask_future, length, trans, num_skills, num_questions, **model_config)
+        elif model_name == 'stablekt':
+            if data_name in ["statics", "assistments15"]:
+                num_questions = 0
+            model_config = config.stablekt_config
+            model = stableKT(mask_response, pred_last, mask_future, length, trans, num_skills, num_questions, **model_config)
         elif model_name == 'atdkt':
             model_config = config.atdkt_config
             model = ATDKT(joint, mask_future, length, num_skills, num_questions, **model_config)
@@ -663,6 +669,9 @@ if __name__ == "__main__":
     elif args.model_name == 'dtransformer':  # dtransformer
         cfg.dtransformer_config.dropout = args.dropout
         cfg.dtransformer_config.embedding_size = args.embedding_size
+    elif args.model_name == 'stablekt':  # stablekt
+        cfg.stablekt_config.dropout = args.dropout
+        cfg.stablekt_config.embedding_size = args.embedding_size
     elif args.model_name == 'atdkt':  # atdkt
         cfg.atdkt_config.dropout = args.dropout
     elif args.model_name == 'dimkt':  # dimkt 

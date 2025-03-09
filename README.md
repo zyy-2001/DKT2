@@ -1,6 +1,6 @@
-# 🚀Revisiting Applicable and Comprehensive Knowledge Tracing in Large-Scale Data (ARR2025 submitted)
+# 🚀Revisiting Applicable and Comprehensive Knowledge Tracing in Large-Scale Data (ECML-PKDD 2025 submitted)
 
-PyTorch implementation of [DKT2](https://openreview.net/pdf?id=3mXwcMmYIg).
+PyTorch implementation of [DKT2](https://cmt3.research.microsoft.com/api/ECMLPKDD2025/Files/672).
 
 ## 🌟Data and Data Preprocessing
 
@@ -11,6 +11,8 @@ python preprocess_data.py --data_name assistments17
 python preprocess_data.py --data_name ednet
 python preprocess_data.py --data_name comp
 ```
+
+You can also download the dataset from the [link](https://drive.google.com/file/d/1PMikGhRwSVAFc0319vxGkoZslM_jvYI_/view?usp=sharing) and unzip it in the current directory.
 
 The statistics of the three datasets after processing are as follows:
 
@@ -37,9 +39,11 @@ pip install -r requirements.txt
 
 It's important to note that xLSTM and Mamba require different CUDA versions, so it's necessary to install two separate Conda virtual environments. At the same time, please strictly follow the installation instructions for [xLSTM](https://github.com/NX-AI/xlstm) and [Mamba](https://github.com/state-spaces/mamba) as provided in their respective GitHub repositories. Downloading the correct CUDA packages is crucial.
 
+
+
 ### Training & Testing
 
-Our model experiments are conducted on two NVIDIA RTX 3090 24GB GPUs. You can execute it directly using the following commands:
+You can execute it directly using the following commands:
 
 - One-step Prediction
 
@@ -65,9 +69,9 @@ CUDA_VISIBLE_DEVICES=0 python main.py --model_name akt --data_name assistments17
 - Different Input Settings
 
 ```python
-CUDA_VISIBLE_DEVICES=0 python main.py --model_name akt --data_name assistments17 --trans True --len 5 --mask_future
-CUDA_VISIBLE_DEVICES=0 python main.py --model_name akt --data_name assistments17 --trans True --len 5 --mask_response
-CUDA_VISIBLE_DEVICES=0 python main.py --model_name akt --data_name assistments17 --trans True --len 5 --pred_last
+CUDA_VISIBLE_DEVICES=0 python main.py --model_name akt --data_name assistments17 --len 5 --mask_future (△ setting)
+CUDA_VISIBLE_DEVICES=0 python main.py --model_name akt --data_name assistments17 --len 5 --mask_response (◦ setting)
+CUDA_VISIBLE_DEVICES=0 python main.py --model_name akt --data_name assistments17 --len 5 --pred_last (• setting)
 ```
 
 - Multi-concept Prediction
