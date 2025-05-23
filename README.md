@@ -2,6 +2,8 @@
 
 PyTorch implementation of [DKT2](https://cmt3.research.microsoft.com/api/ECMLPKDD2025/Files/672).
 
+> We apologize for the recent issue we discovered with the anonymous repository caching (https://github.com/tdurieux/anonymous_github/issues/395), which caused the previous code to be displayed incompletely. We have now updated it to provide a complete review.
+
 ## 🌟Data and Data Preprocessing
 
 Place the [Assist17](https://sites.google.com/view/assistmentsdatamining/dataset?authuser=0), [EdNet](https://github.com/riiid/ednet), and [Comp](https://github.com/wahr0411/PTADisc) source files in the dataset directory, and process the data using the following commands respectively:
