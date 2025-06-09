@@ -1,8 +1,16 @@
-# 🚀Revisiting Applicable and Comprehensive Knowledge Tracing in Large-Scale Data (ECML-PKDD 2025 submitted)
+# 🚀Revisiting Applicable and Comprehensive Knowledge Tracing in Large-Scale Data (ECML-PKDD 2025)
 
-PyTorch implementation of [DKT2](https://cmt3.research.microsoft.com/api/ECMLPKDD2025/Files/672).
+PyTorch implementation of [DKT2](https://arxiv.org/abs/2501.14256).
 
-> We apologize for the recent issue we discovered with the anonymous repository caching (https://github.com/tdurieux/anonymous_github/issues/395), which caused the previous code to be displayed incompletely. We have now updated it to provide a complete review.
+
+<h5 align=center>
+      
+[![arXiv](https://img.shields.io/badge/Arxiv-2501.14256-red?logo=arxiv&label=Arxiv&color=red)](https://arxiv.org/abs/2501.14256)
+[![License](https://img.shields.io/badge/Code%20License-MIT%20License-yellow)](https://github.com/zyy-2001/DKT2/blob/master/LICENSE)
+![GitHub Repo stars](https://img.shields.io/github/stars/zyy-2001/DKT2)
+
+</h5>
+
 
 ## 🌟Data and Data Preprocessing
 
@@ -81,4 +89,15 @@ CUDA_VISIBLE_DEVICES=0 python main.py --model_name akt --data_name assistments17
 ```python
 CUDA_VISIBLE_DEVICES=0 python main.py --model_name dkt2 --data_name assistments17 --joint True
 CUDA_VISIBLE_DEVICES=0 python main.py --model_name akt --data_name assistments17 --trans True --joint True
+```
+
+## ⚠️Citation
+If you find our work valuable, we would appreciate your citation: 
+```text
+@article{zhou2025revisiting,
+  title={Revisiting Applicable and Comprehensive Knowledge Tracing in Large-Scale Data},
+  author={Zhou, Yiyun and Han, Wenkang and Chen, Jingyuan},
+  journal={arXiv preprint arXiv:2501.14256},
+  year={2025}
+}
 ```
