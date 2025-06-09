@@ -2,7 +2,6 @@
 
 PyTorch implementation of [DKT2](https://arxiv.org/abs/2501.14256).
 
-
 <h5 align=center>
       
 [![arXiv](https://img.shields.io/badge/Arxiv-2501.14256-red?logo=arxiv&label=Arxiv&color=red)](https://arxiv.org/abs/2501.14256)
